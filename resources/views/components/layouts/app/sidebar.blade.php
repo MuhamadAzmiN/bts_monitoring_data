@@ -9,26 +9,17 @@
                             <x-layouts.sidebar-link href="{{ route('dashboard') }}" icon='fas-house'
                                 :active="request()->routeIs('dashboard*')">Dashboard</x-layouts.sidebar-link>
 
-                            <!-- Example two level -->
-                            <x-layouts.sidebar-two-level-link-parent title="Example two level" icon="fas-house"
-                                :active="request()->routeIs('two-level*')">
-                                <x-layouts.sidebar-two-level-link href="#" icon='fas-house'
-                                    :active="request()->routeIs('two-level*')">Child</x-layouts.sidebar-two-level-link>
-                            </x-layouts.sidebar-two-level-link-parent>
+                            <!-- Edit BTS -->
+                            <x-layouts.sidebar-link href="{{ route('bts.index') }}" icon='fas-pen-to-square'
+                                :active="request()->routeIs('bts*')">Edit BTS</x-layouts.sidebar-link>
 
-                            <!-- Example three level -->
-                            <x-layouts.sidebar-two-level-link-parent title="Example three level" icon="fas-house"
-                                :active="request()->routeIs('three-level*')">
-                                <x-layouts.sidebar-two-level-link href="#" icon='fas-house'
-                                    :active="request()->routeIs('three-level*')">Single Link</x-layouts.sidebar-two-level-link>
+                            <!-- Connected Devices -->
+                            <x-layouts.sidebar-link href="{{ route('devices.index') }}" icon='fas-computer'
+                                :active="request()->routeIs('devices*')">Connected Devices</x-layouts.sidebar-link>
 
-                                <x-layouts.sidebar-three-level-parent title="Third Level" icon="fas-house"
-                                    :active="request()->routeIs('three-level*')">
-                                    <x-layouts.sidebar-three-level-link href="#" :active="request()->routeIs('three-level*')">
-                                        Third Level Link
-                                    </x-layouts.sidebar-three-level-link>
-                                </x-layouts.sidebar-three-level-parent>
-                            </x-layouts.sidebar-two-level-link-parent>
+                            <!-- SMS / Broadcast / Telephony -->
+                            <x-layouts.sidebar-link href="{{ route('sms.index') }}" icon='fas-comment'
+                                :active="request()->routeIs('sms*')">SMS / Broadcast / Telephony</x-layouts.sidebar-link>
                         </ul>
                     </nav>
                 </div>
