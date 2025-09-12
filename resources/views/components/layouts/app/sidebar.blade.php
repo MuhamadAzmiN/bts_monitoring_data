@@ -14,8 +14,8 @@
                                 :active="request()->routeIs('bts*')">Edit BTS</x-layouts.sidebar-link>
 
                             <!-- Connected Devices -->
-                            <x-layouts.sidebar-link href="{{ route('devices.index') }}" icon='fas-computer'
-                                :active="request()->routeIs('devices*')">Connected Devices</x-layouts.sidebar-link>
+                            {{-- <x-layouts.sidebar-link href="{{ route('devices.index') }}" icon='fas-computer'
+                                :active="request()->routeIs('devices*')">Connected Devices</x-layouts.sidebar-link> --}}
 
                             <!-- SMS / Broadcast / Telephony -->
                             <x-layouts.sidebar-link href="{{ route('sms.index') }}" icon='fas-comment'

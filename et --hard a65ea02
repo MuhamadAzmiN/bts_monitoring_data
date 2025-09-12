@@ -1,0 +1,23 @@
+[33m8bc3890[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/fakhri[m[33m)[m HEAD@{0}: reset: moving to ORIG_HEAD
+[33m8bc3890[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/fakhri[m[33m)[m HEAD@{1}: pull origin fakhri: Fast-forward
+[33ma65ea02[m HEAD@{2}: checkout: moving from ical to main
+[33m724b281[m[33m ([m[1;31morigin/ical[m[33m, [m[1;32mical[m[33m)[m HEAD@{3}: checkout: moving from main to ical
+[33ma65ea02[m HEAD@{4}: pull origin fakhri: Fast-forward
+[33ma8b47ad[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m HEAD@{5}: reset: moving to origin/main
+[33ma65ea02[m HEAD@{6}: checkout: moving from main to main
+[33ma65ea02[m HEAD@{7}: reset: moving to HEAD@{8}
+[33m724b281[m[33m ([m[1;31morigin/ical[m[33m, [m[1;32mical[m[33m)[m HEAD@{8}: reset: moving to origin/ical
+[33m724b281[m[33m ([m[1;31morigin/ical[m[33m, [m[1;32mical[m[33m)[m HEAD@{9}: reset: moving to origin/ical
+[33m724b281[m[33m ([m[1;31morigin/ical[m[33m, [m[1;32mical[m[33m)[m HEAD@{10}: reset: moving to origin/ical
+[33ma65ea02[m HEAD@{11}: reset: moving to HEAD@{7}
+[33ma65ea02[m HEAD@{12}: reset: moving to HEAD@{7}
+[33ma8b47ad[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m HEAD@{13}: reset: moving to HEAD@{7}
+[33ma65ea02[m HEAD@{14}: reset: moving to ORIG_HEAD
+[33ma65ea02[m HEAD@{15}: reset: moving to origin/fakhri
+[33ma65ea02[m HEAD@{16}: reset: moving to origin/fakhri
+[33m724b281[m[33m ([m[1;31morigin/ical[m[33m, [m[1;32mical[m[33m)[m HEAD@{17}: reset: moving to origin/ical
+[33ma65ea02[m HEAD@{18}: reset: moving to HEAD
+[33ma65ea02[m HEAD@{19}: reset: moving to HEAD
+[33ma65ea02[m HEAD@{20}: pull origin fakhri: Fast-forward
+[33ma8b47ad[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m HEAD@{21}: commit: FIRST COMMIT
+[33m18b2569[m HEAD@{22}: clone: from https://github.com/LaravelDaily/starter-kit.git

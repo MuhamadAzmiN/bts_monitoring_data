@@ -23,7 +23,7 @@ Route::view('dashboard', 'dashboard')
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('sniff_result', [SniffResultController::class, 'index'])->name('sniff_result');
-    Route::get('config', [ConfigController::class, 'index'])->name('config');
+    Route::get('config', [ConfigController::class, 'index'])->name('config.index');
     Route::post('config', [ConfigController::class, 'store'])->name('config');
 });
     
@@ -36,7 +36,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('settings/appearance', [Settings\AppearanceController::class, 'edit'])->name('settings.appearance.edit');
 
     Route::resource('bts', BtsController::class);
-    Route::resource('devices', DeviceController::class);
+    // Route::resource('devices', DeviceController::class);
     Route::resource('sms', SmsController::class);
 });
 
