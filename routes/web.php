@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\Settings;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SniffResultController;
+use App\Http\Controllers\ConfigController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -11,6 +13,16 @@ Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
 
+// Route::view('sniff_result', 'sniff_result')
+//     ->middleware(['auth', 'verified'])
+//     ->name('sniff_result');
+
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('sniff_result', [SniffResultController::class, 'index'])->name('sniff_result');
+    Route::get('config', [ConfigController::class, 'index'])->name('config');
+    Route::post('config', [ConfigController::class, 'store'])->name('config');
+});
+    
 Route::middleware(['auth'])->group(function () {
     Route::get('settings/profile', [Settings\ProfileController::class, 'edit'])->name('settings.profile.edit');
     Route::put('settings/profile', [Settings\ProfileController::class, 'update'])->name('settings.profile.update');
