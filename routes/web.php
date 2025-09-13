@@ -35,7 +35,7 @@ Route::middleware(['auth'])->group(function () {
     Route::put('settings/password', [Settings\PasswordController::class, 'update'])->name('settings.password.update');
     Route::get('settings/appearance', [Settings\AppearanceController::class, 'edit'])->name('settings.appearance.edit');
 
-    Route::resource('bts', BtsController::class);
+    Route::get('bts', [BtsController::class, 'index'])->name('bts.index');
     // Route::resource('devices', DeviceController::class);
     Route::resource('sms', SmsController::class);
 });
