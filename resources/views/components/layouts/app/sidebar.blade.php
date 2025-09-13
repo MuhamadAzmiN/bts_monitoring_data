@@ -7,19 +7,23 @@
                         <ul class="space-y-1 px-2">
                             <!-- Dashboard -->
                             <x-layouts.sidebar-link href="{{ route('dashboard') }}" icon='fas-house'
-                                :active="request()->routeIs('dashboard*')">Dashboard</x-layouts.sidebar-link>
+                                :active="request()->routeIs('dashboard*')">DASHBOARD</x-layouts.sidebar-link>
 
                             <!-- Edit BTS -->
                             <x-layouts.sidebar-link href="{{ route('bts.index') }}" icon='fas-pen-to-square'
-                                :active="request()->routeIs('bts*')">Edit BTS</x-layouts.sidebar-link>
-
-                            <!-- Connected Devices -->
-                            <x-layouts.sidebar-link href="{{ route('devices.index') }}" icon='fas-computer'
-                                :active="request()->routeIs('devices*')">Connected Devices</x-layouts.sidebar-link>
+                                :active="request()->routeIs('bts*')">IMSI</x-layouts.sidebar-link>
 
                             <!-- SMS / Broadcast / Telephony -->
                             <x-layouts.sidebar-link href="{{ route('sms.index') }}" icon='fas-comment'
-                                :active="request()->routeIs('sms*')">SMS / Broadcast / Telephony</x-layouts.sidebar-link>
+                                :active="request()->routeIs('sms*')">TAKEOVER MODE</x-layouts.sidebar-link>
+
+                            <!-- Sniff Result -->
+                            <x-layouts.sidebar-link href="{{ route('sniff_result') }}" icon='fas-message'
+                                :active="request()->routeIs('sniff*')">SNIFF RESULT</x-layouts.sidebar-link>
+
+                            <!-- Config -->
+                            <x-layouts.sidebar-link href="{{ route('config') }}" icon='fas-gear'
+                                :active="request()->routeIs('config*')">CONFIG</x-layouts.sidebar-link>
                         </ul>
                     </nav>
                 </div>

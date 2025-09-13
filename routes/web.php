@@ -4,22 +4,20 @@ use App\Http\Controllers\Settings;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SniffResultController;
 use App\Http\Controllers\ConfigController;
-
 use App\Http\Controllers\BtsController;
-use App\Http\Controllers\DeviceController;
 use App\Http\Controllers\SmsController;
 
+// Route::get('/', function () {
+//     return view('welcome');
+// })->name('home');
+
 Route::get('/', function () {
-    return view('welcome');
-})->name('home');
+    return redirect()->route('login');
+});
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
-
-// Route::view('sniff_result', 'sniff_result')
-//     ->middleware(['auth', 'verified'])
-//     ->name('sniff_result');
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('sniff_result', [SniffResultController::class, 'index'])->name('sniff_result');
@@ -36,7 +34,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('settings/appearance', [Settings\AppearanceController::class, 'edit'])->name('settings.appearance.edit');
 
     Route::resource('bts', BtsController::class);
-    Route::resource('devices', DeviceController::class);
     Route::resource('sms', SmsController::class);
 });
 

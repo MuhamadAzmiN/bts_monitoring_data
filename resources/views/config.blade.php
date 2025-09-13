@@ -15,7 +15,9 @@
         <p class="text-gray-600 dark:text-gray-400 mt-1">{{ __('A control page to configure BTS settings, launch broadcasts, and manage targeted network operations.') }}</p>
     </div>
 
-    <div style="margin-top: 4em; padding: 1em 0; background-color: #0B1739; border-radius: 1em;">
+    <div class="w-full border-b-1 pb-4 relative left-1/2 -translate-x-1/2" style="border-color: hsl(var(--sidebar-background));"></div>
+
+    <div style="margin-top: 3em; padding: 1em 0; background-color: #0B1739; border-radius: 1em;">
         <div class="overflow-x-auto">
             <form action="config" method="POST" style="padding: 0.5em 0 2em 1.5em;">
                 @csrf

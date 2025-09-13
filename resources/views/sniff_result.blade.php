@@ -15,7 +15,9 @@
         <p class="text-gray-600 dark:text-gray-400 mt-1">{{ __('A dedicated page to scan and identify IMSI numbers in the network with fast configuration and monitoring.') }}</p>
     </div>
 
-    <div style="margin-top: 7rem; padding: 1.5rem 0; background-color: #0B1739; border-radius: 1rem;">
+    <div class="w-full max-w-none border-b-1 pb-4 relative left-1/2 -translate-x-1/2" style="border-color: hsl(var(--sidebar-background));"></div>
+
+    <div style="margin-top: 3rem; padding: 1.5rem 0; background-color: #0B1739; border-radius: 1rem;">
         <h2 style="margin: 0.5rem 0 2rem 1.5rem;" class="text-gray-400 text-xl font-normal">SMS SERVICE</h2>
         <div class="overflow-x-auto">
             <table class="w-full text-left text-sm text-gray-300 border-collapse">

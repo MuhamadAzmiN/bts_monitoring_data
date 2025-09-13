@@ -31,7 +31,7 @@
                 document.addEventListener("DOMContentLoaded", () => setButtons(appearance))
             }
         }
-        window.setAppearance(window.localStorage.getItem('appearance') || 'system')
+        window.setAppearance(window.localStorage.getItem('appearance') || 'dark')
     </script>
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])

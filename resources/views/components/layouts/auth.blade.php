@@ -36,14 +36,12 @@
 }"
     :class="{ 'dark': darkMode }">
 
-    <div class="min-h-screen flex flex-col">
-        <!-- Main Content -->
-        <main class="flex-1 flex items-center justify-center p-6">
-            <div class="w-full max-w-md">
-                {{ $slot }}
-            </div>
+    <div class="min-h-screen flex items-center justify-center bg-[#0B1739] px-4">
+        <main class="w-full max-w-4xl">
+            {{ $slot }}
         </main>
     </div>
+
 </body>
 
 </html>
