@@ -1,78 +1,82 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="max-w-6xl mx-auto p-6 bg-white rounded shadow" x-data="{ editDialogOpen: false, currentBts: null }" x-cloak>
-    <h1 class="text-2xl font-bold mb-6">Edit BTS (Dummy Data Table)</h1>
-    <table class="min-w-full border border-gray-300">
-        <thead class="bg-gray-200">
-            <tr>
-                <th class="border px-4 py-2 text-left">Nama BTS</th>
-                <th class="border px-4 py-2 text-left">Frekuensi</th>
-                <th class="border px-4 py-2 text-left">Parameter Lain</th>
-                <th class="border px-4 py-2 text-left">Status</th>
-                <th class="border px-4 py-2 text-left">Aksi</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach ([
-                ['name' => 'BTS Jakarta 1', 'freq' => '900 MHz', 'param' => 'Power: 20W, Antenna: Omni', 'status' => 'Aktif'],
-                ['name' => 'BTS Bandung 2', 'freq' => '1800 MHz', 'param' => 'Power: 15W, Antenna: Directional', 'status' => 'Nonaktif'],
-                ['name' => 'BTS Surabaya 3', 'freq' => '2100 MHz', 'param' => 'Power: 25W, Antenna: Omni', 'status' => 'Aktif'],
-                ['name' => 'BTS Medan 4', 'freq' => '900 MHz', 'param' => 'Power: 18W, Antenna: Directional', 'status' => 'Aktif'],
-                ['name' => 'BTS Makassar 5', 'freq' => '1800 MHz', 'param' => 'Power: 20W, Antenna: Omni', 'status' => 'Nonaktif'],
-            ] as $bts)
-            <tr class="border-b">
-                <td class="border px-4 py-2">{{ $bts['name'] }}</td>
-                <td class="border px-4 py-2">{{ $bts['freq'] }}</td>
-                <td class="border px-4 py-2">{{ $bts['param'] }}</td>
-                <td class="border px-4 py-2">
-                    @if ($bts['status'] === 'Aktif')
-                        <span class="text-green-600 font-semibold">Aktif</span>
-                    @else
-                        <span class="text-red-600 font-semibold">Nonaktif</span>
-                    @endif
-                </td>
-                <td class="border px-4 py-2 flex flex-wrap gap-2">
-                    <button @click="editDialogOpen = true; currentBts = {{ json_encode($bts) }}" class="bg-yellow-400 px-3 py-1 rounded text-black font-semibold whitespace-nowrap">Edit</button>
-                    <button class="bg-gray-300 px-3 py-1 rounded text-black font-semibold whitespace-nowrap">SMS</button>
-                    <button class="bg-gray-300 px-3 py-1 rounded text-black font-semibold whitespace-nowrap">Broadcast</button>
-                    <button class="bg-gray-300 px-3 py-1 rounded text-black font-semibold whitespace-nowrap">Call</button>
-                </td>
-            </tr>
-            @endforeach
-        </tbody>
-    </table>
+<div class="max-w-8xl mx-auto p-0 bg-gray-900 rounded shadow text-white">
+    <h1 class="text-2xl font-bold mb-4">IMSI RECON</h1>
+    <p class="mb-9 text-gray-400 border-b border-gray-700 pb-6">A dedicated page to scan and identify IMSI numbers in the network with fast configuration and monitoring.</p>
 
+    <div class="bg-[#0e1630] p-6 rounded mt-6 mb-6">
+        <h2 class="text-lg font-semibold mb-4">Start System</h2>
+        <form class="flex flex-col gap-4">
+            <div>
+                <label for="target_imsi" class="block mb-1 text-white">Target Imsi</label>
+                <input type="text" id="target_imsi" name="target_imsi" class="w-full rounded px-3 py-2 text-white" placeholder="Enter Target Imsi">
+            </div>
+            <div>
+                <label for="arfcn" class="block mb-1 text-white">ARFCN</label>
+                <input type="text" id="arfcn" name="arfcn" class="w-full rounded px-3 py-2 text-white" placeholder="Enter ARFCN">
+            </div>
+            <div class="flex gap-4">
+                <button type="button" class="bg-orange-600 hover:bg-orange-700 text-white font-semibold px-4 py-2 rounded">Fast</button>
+                <button type="button" class="bg-pink-600 hover:bg-pink-700 text-white font-semibold px-4 py-2 rounded">Start</button>
+            </div>
+        </form>
+    </div>
 
-    <!-- Modal Dialog -->
-    <div x-show="editDialogOpen" x-transition.opacity class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-30 backdrop-blur-sm" style="display: none;">
-        <div x-transition x-on:click.stop class="bg-white rounded-lg shadow-lg max-w-md w-full p-6" @click.away="editDialogOpen = false">
-            <h2 class="text-xl font-bold mb-4">Edit BTS</h2>
-            <form>
-                <div class="mb-4">
-                    <label for="name" class="block font-semibold mb-1">Nama BTS</label>
-                    <input type="text" id="name" name="name" x-model="currentBts.name" class="w-full border border-gray-300 rounded px-3 py-2" />
-                </div>
-                <div class="mb-4">
-                    <label for="freq" class="block font-semibold mb-1">Frekuensi</label>
-                    <input type="text" id="freq" name="freq" x-model="currentBts.freq" class="w-full border border-gray-300 rounded px-3 py-2" />
-                </div>
-                <div class="mb-4">
-                    <label for="param" class="block font-semibold mb-1">Parameter Lain</label>
-                    <input type="text" id="param" name="param" x-model="currentBts.param" class="w-full border border-gray-300 rounded px-3 py-2" />
-                </div>
-                <div class="mb-4">
-                    <label for="status" class="block font-semibold mb-1">Status</label>
-                    <select id="status" name="status" x-model="currentBts.status" class="w-full border border-gray-300 rounded px-3 py-2">
-                        <option>Aktif</option>
-                        <option>Nonaktif</option>
-                    </select>
-                </div>
-                <div class="flex justify-end space-x-2">
-                    <button type="button" @click="editDialogOpen = false" class="px-4 py-2 rounded border border-gray-300">Batal</button>
-                    <button type="submit" class="px-4 py-2 rounded bg-yellow-400 text-black font-semibold">Simpan</button>
-                </div>
-            </form>
+    <div style="margin-top: 2.5rem; padding: 1.5rem 0; background-color: #0B1739; border-radius: 1rem;">
+        <h2 style="margin: 0.5rem 0 2rem 1.5rem;" class="text-gray-400 text-xl font-normal">Imsi Recon’s Tabel</h2>
+        <div class="overflow-x-auto">
+            <table class="w-full text-left text-white border-collapse">
+                <thead>
+                    <tr>
+                        <th style="padding: 1.5em;" class="py-3 text-lg font-semibold">TMSI</th>
+                        <th style="padding: 1.5em;" class="py-3 text-lg font-semibold">IMSI</th>
+                        <th style="padding: 1.5em;" class="py-3 text-lg font-semibold">OPERATOR</th>
+                        <th style="padding: 1.5em;" class="py-3 text-lg font-semibold">MCC</th>
+                        <th style="padding: 1.5em;" class="py-3 text-lg font-semibold">MNC</th>
+                        <th style="padding: 1.5em;" class="py-3 text-lg font-semibold">LAC</th>
+                        <th style="padding: 1.5em;" class="py-3 text-lg font-semibold">CELLID</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="bg-[#0e1630] text-white">
+                        <td style="padding: 1.5em;" class="py-3 text-lg">3666363282</td>
+                        <td style="padding: 1.5em;" class="py-3 text-lg">510011134589830</td>
+                        <td style="padding: 1.5em;" class="py-3 text-lg">telkomsel</td>
+                        <td style="padding: 1.5em;" class="py-3 text-lg">510</td>
+                        <td style="padding: 1.5em;" class="py-3 text-lg">10</td>
+                        <td style="padding: 1.5em;" class="py-3 text-lg">3738</td>
+                        <td style="padding: 1.5em;" class="py-3 text-lg">6271</td>
+                    </tr>
+                    <tr class="bg-[#131c3a] text-white">
+                        <td style="padding: 1.5em;" class="py-3 text-lg">348797674</td>
+                        <td style="padding: 1.5em;" class="py-3 text-lg">510092029491462</td>
+                        <td style="padding: 1.5em;" class="py-3 text-lg">indosat</td>
+                        <td style="padding: 1.5em;" class="py-3 text-lg">510</td>
+                        <td style="padding: 1.5em;" class="py-3 text-lg">21</td>
+                        <td style="padding: 1.5em;" class="py-3 text-lg">3738</td>
+                        <td style="padding: 1.5em;" class="py-3 text-lg">6271</td>
+                    </tr>
+                    <tr class="bg-[#0e1630] text-white">
+                        <td style="padding: 1.5em;" class="py-3 text-lg">3909314863</td>
+                        <td style="padding: 1.5em;" class="py-3 text-lg">510092029491462</td>
+                        <td style="padding: 1.5em;" class="py-3 text-lg">xl</td>
+                        <td style="padding: 1.5em;" class="py-3 text-lg">510</td>
+                        <td style="padding: 1.5em;" class="py-3 text-lg">11</td>
+                        <td style="padding: 1.5em;" class="py-3 text-lg">3738</td>
+                        <td style="padding: 1.5em;" class="py-3 text-lg">6271</td>
+                    </tr>
+                    <tr class="bg-[#4a1f2e] text-[#f16e7e] font-semibold">
+                        <td style="padding: 1.5em;" class="py-3 text-lg">2338961376</td>
+                        <td style="padding: 1.5em;" class="py-3 text-lg">510108832192265</td>
+                        <td style="padding: 1.5em;" class="py-3 text-lg">indosat</td>
+                        <td style="padding: 1.5em;" class="py-3 text-lg">510</td>
+                        <td style="padding: 1.5em;" class="py-3 text-lg">21</td>
+                        <td style="padding: 1.5em;" class="py-3 text-lg">3738</td>
+                        <td style="padding: 1.5em;" class="py-3 text-lg">6271</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 </div>

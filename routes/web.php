@@ -21,7 +21,7 @@ Route::view('dashboard', 'dashboard')
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('sniff_result', [SniffResultController::class, 'index'])->name('sniff_result');
-    Route::get('config', [ConfigController::class, 'index'])->name('config');
+    Route::get('config', [ConfigController::class, 'index'])->name('config.index');
     Route::post('config', [ConfigController::class, 'store'])->name('config');
 });
     
